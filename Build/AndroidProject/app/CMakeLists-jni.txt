@@ -1,0 +1,39 @@
+
+# Build osgNativeLib.
+ADD_LIBRARY(osgNativeLib SHARED src/main/cpp/osgNativeLib.cpp)
+FIND_LIBRARY(log-lib log)
+# order matters, a > b means b should be included before a (appears later than a in TARGET_LINK_LIBRARIES)
+TARGET_LINK_LIBRARIES(
+    osgNativeLib
+    cvrKernel                     # For cvr, Kernel > Menu > Util
+    cvrMenu                       # The order of Input, Config, Collaborative is unsure (current order works)
+    cvrUtil                       #
+    cvrInput                      #
+    cvrConfig                     #
+    cvrCollaborative              #
+    mxml                          # mxml must be included before cvr
+    ${log-lib}                    #
+    osgPresentation               # For osg, the dependency relations:
+    osgWidget                     # osgPresentation:
+    osgUI                         # osgdb_osg:
+    osgManipulator                # osgdb_serializers_osg:
+    osgAnimation                  # (These three are the "roots" of the trees)
+    osgViewer                     #
+    osgVolume                     #
+    osgSim                        #
+    osgShadow                     #
+    osgTerrain                    #
+    osgParticle                   #
+    osgFX                         #
+    z                             #
+    osgText                       #
+    osgGA                         #
+    osgdb_osg                     #
+    osgdb_serializers_osg         #
+    osgDB                         #
+    osgUtil                       #
+    osg                           #
+    OpenThreads                   #
+    EGL                           #
+    GLESv2                        #
+)

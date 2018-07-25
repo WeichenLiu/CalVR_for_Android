@@ -1,0 +1,23 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.4.1)
+
+# Path to external projects:
+# * OpenSceneGraph
+# * openscenegraph-cross-platform-guide-application
+SET(EXT_PROJ_DIR "${CMAKE_SOURCE_DIR}/../..")
+
+# Specify critical OpenSceneGraph build variables.
+SET(OPENGL_PROFILE "GLES2+GLES3" CACHE STRING "OpenGL variant to use")
+SET(DYNAMIC_OPENTHREADS OFF CACHE BOOL "Link OpenThreads statically")
+SET(DYNAMIC_OPENSCENEGRAPH OFF CACHE BOOL "Link OpenSceneGraph statically")
+# Build and reference OpenSceneGraph.
+SET(OSG_SOURCE_DIR "${EXT_PROJ_DIR}/OpenSceneGraph-3.6.2")
+SET(OSG_BUILD_DIR "${EXT_PROJ_DIR}/OpenSceneGraph-3.6.2/build/${ANDROID_ABI}")
+FILE(MAKE_DIRECTORY ${OSG_BUILD_DIR})
+ADD_SUBDIRECTORY(${OSG_SOURCE_DIR} ${OSG_BUILD_DIR})
+INCLUDE_DIRECTORIES(${OSG_BUILD_DIR}/include)
+INCLUDE_DIRECTORIES(${OSG_SOURCE_DIR}/include)
+
+# Libraries must be linked in the specified order.
+# Otherwise you may get unsatisified linker errors.
+SET(OSG_LIB_DIR "${OSG_BUILD_DIR}/lib")
+LINK_DIRECTORIES(${OSG_LIB_DIR})

@@ -1,0 +1,16 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.4.1)
+
+# Path to external projects:
+# * mxml
+SET(EXT_PROJ_DIR "${CMAKE_SOURCE_DIR}/../..")
+
+# Specify critical mini-xml build variables.
+# Build and reference OpenSceneGraph.
+SET(MXML_SOURCE_DIR "${EXT_PROJ_DIR}/mxml")
+SET(MXML_BUILD_DIR "${EXT_PROJ_DIR}/mxml/build/${ANDROID_ABI}")
+
+FILE(MAKE_DIRECTORY ${MXML_BUILD_DIR})
+ADD_SUBDIRECTORY(${MXML_SOURCE_DIR} ${MXML_BUILD_DIR})
+INCLUDE_DIRECTORIES(${MXML_SOURCE_DIR})
+INCLUDE_DIRECTORIES(${MXML_BUILD_DIR}/include)
+

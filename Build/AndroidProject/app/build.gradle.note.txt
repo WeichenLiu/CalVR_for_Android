@@ -1,0 +1,11 @@
+Add this to android -> defaultConfig -> externalNativeBuild
+cmake {
+        cppFlags "-std=c++11 -frtti -fexceptions -Wno-error=format-security"
+        abiFilters "arm64-v8a", "x86" 
+}
+Add this to android
+externalNativeBuild {
+    cmake {
+        path "CMakeLists.txt"
+    }
+}
