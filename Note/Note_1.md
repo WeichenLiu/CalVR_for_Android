@@ -16,14 +16,23 @@ GLES2/3 doesn’t support such calls. (I tried to translate `glBegin, glEnd, glV
 
 1. For problem 1, maybe rewrite those codes using new Opengl
 >I only found 5 functions that prevent it from compiling:
+
 >ScreenMVStencil.h:
+
 > `fullscreenQuad()`
+
 > `fullscreenTriangle()`
+
 > ScreenMVStencil.cpp: 
+
 > `ScreenMVStencil::setupZones()`
+
 > ScreenInterlacedTopBottom.cpp:
+
 > `ScreenInterlacedTopBottom::InterlaceCallback::operator()`
+
 > ScreenMVShader.cpp: 
+
 > `ScreenMVShader::PreDrawCallback::operator()`
 
 2. For problem 2, replace them with android logcat functions.
@@ -31,4 +40,5 @@ GLES2/3 doesn’t support such calls. (I tried to translate `glBegin, glEnd, glV
 
 3. For problem 3 (and maybe 4):
 >a. Hardcode env variables and set them using `setenv()` at the very beginning of application (Not sure if Android allows an app to do this)
+
 >b. Wrap all `getenv()` calls with `#ifndef Android`, and feed in hardcoded path instead.
