@@ -14,11 +14,11 @@ TARGET_LINK_LIBRARIES(
     mxml                          # mxml must be included before cvr
     ${log-lib}                    #
     osgPresentation               # For osg, the dependency relations:
-    osgWidget                     # osgPresentation:
-    osgUI                         # osgdb_osg:
+    osgWidget                     # osgPresentation: https://github.com/WeichenLiu/CalVR_for_Android/blob/master/Note/osgPresentation.png
+    osgUI                         # osgdb_osg: https://github.com/WeichenLiu/CalVR_for_Android/blob/master/Note/osgdb_osg.png
     osgManipulator                # osgdb_serializers_osg:
-    osgAnimation                  # (These three are the "roots" of the trees)
-    osgViewer                     #
+    osgAnimation                  # https://github.com/WeichenLiu/CalVR_for_Android/blob/master/Note/osgdb_serializers_osg.png
+    osgViewer                     # (These three are the "roots" of the trees)
     osgVolume                     #
     osgSim                        #
     osgShadow                     #
