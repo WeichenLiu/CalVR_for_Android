@@ -13,31 +13,41 @@ GLES2/3 doesn’t support such calls. (I tried to translate `glBegin, glEnd, glV
 
 
 ## Progress:
-2. For problem 2, replace them with android logcat functions.
+### For problem 2, replace them with android logcat functions.
+
 Current progress:
+
 Implement a customized `std::streambuf` class which directs outputs to android `logcat` instead of default `/dev/null`
+
 File name:
-`include/cvrUtil/AndroidStdio.h`
+> `include/cvrUtil/AndroidStdio.h`
 `src/cvrUtil/AndroidStdio.cpp`
+
 Requirement:
-a) define `ANDROID`
-b) `std::cout.rdbuf(new androidbuf(4));` and 
+1. define `ANDROID`
+2. `std::cout.rdbuf(new androidbuf(4));` and 
 `std::cerr.rdbuf(new androidbuf(6));` 
 must be called before any `std::cout<<` or `std::cerr<<`
-c) `AndroidStdio.h` must be included before any `std::cout<<` or `std::cerr<<` calls.
+3. `AndroidStdio.h` must be included before any `std::cout<<` or `std::cerr<<` calls.
 
-3. For problem 3 
+### For problem 3 
+
 Current progress:
+
 Implement an `Environment` class to which contains a `std::map` to store pairs of `name` and `value`.
 Use macro `#define getenv(x) __android_getenv(x)` to "override" `getenv()` function in standard library.
+
 Currently, all env are hardcoded in `AndroidGetenv.cpp`
+
 **(TODO)** Allow to read in environment variable from file.
+
 File name:
-`include/cvrUtil/AndroidGetenv.h`
+> `include/cvrUtil/AndroidGetenv.h`
 `src/cvrUtil/AndroidGetenv.cpp`
+
 Requirement:
-a) define `ANDROID`
-b) `AndroidGetenv.h` must be included after `cstdlib`/`stdlib.h` and before any `getenv()` calls.
+1. define `ANDROID`
+2. `AndroidGetenv.h` must be included after `cstdlib`/`stdlib.h` and before any `getenv()` calls.
 
 ## Solution (Todo):
 
