@@ -13,6 +13,10 @@ GLES2/3 doesn’t support such calls. (I tried to translate `glBegin, glEnd, glV
 
 
 ## Progress:
+### For problem 1
+`InterlacedTopBottom` screen are not intened for phones and currently we just skip the MultiViewer feature.
+We use a `#ifndef __ANDROID__` to ignore them
+
 ### For problem 2, replace them with android logcat functions.
 
 Current progress:
