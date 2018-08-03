@@ -102,7 +102,7 @@ void ScreenMVStencil::computeScreenInfoXZ()
 void ScreenMVStencil::createCameras(unsigned int quantity)
 {
     std::string shaderDir;
-    char * cvrHome = getenv("CALVR_HOME");
+    const char * cvrHome = getenv("CALVR_HOME");
     if(cvrHome)
     {
         shaderDir = cvrHome;
