@@ -35,6 +35,7 @@ must be called before any `std::cout<<` or `std::cerr<<`
 Current progress:
 
 Implement an `Environment` class to which contains a `std::map` to store pairs of `name` and `value`.
+
 Use macro `#define getenv(x) __android_getenv(x)` to "override" `getenv()` function in standard library.
 
 Currently, all env are hardcoded in `AndroidGetenv.cpp`
