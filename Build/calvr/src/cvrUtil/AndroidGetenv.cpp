@@ -41,4 +41,8 @@ const char* Environment::getVar(const char* name) {
   return it->second.c_str();
 }
 
+const char * __android_getenv(const char * name) {
+  return Environment::getInstance()->getVar(name);
+}
+
 #undef let

@@ -1,10 +1,11 @@
 #ifndef ANDROID_GETENV_H
 #define ANDROID_GETENV_H
 
+#include <string>
 #include <map>
 
 
-std::map<std::string, std::string> env_var;
+//std::map<std::string, std::string> env_var;
 
 class Environment {
 private:
@@ -24,8 +25,6 @@ public:
 
 #define getenv(x) __android_getenv(x)
 
-const char * __android_getenv(const char * name) {
-  return Environment::getInstance()->getVar(name);
-}
+const char * __android_getenv(const char * name);
 
 #endif
