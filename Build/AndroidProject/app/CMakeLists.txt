@@ -42,6 +42,8 @@ SET(KERNEL_LIBRARIES
     osgdb_png
     osgdb_jpeg
     osgdb_osg                     #
+	osgdb_freetype
+	osgdb_rgb
     osgdb_serializers_osg         #
     osgDB                         #
     osgUtil                       #
@@ -50,6 +52,7 @@ SET(KERNEL_LIBRARIES
     tiff
     png
     jpeg
+	freetype
     #zlib
     EGL                           #
     GLESv2                        #
