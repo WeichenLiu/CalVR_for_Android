@@ -9,7 +9,7 @@ cmake_minimum_required(VERSION 3.4.1)
 
 # for more detailed linker message
 SET( GCC_COVERAGE_LINK_FLAGS    "-v")
-SET( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+SET( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++14")
 SET( CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS}" )
 SET( CMAKE_SHARED_LINKER_FLAGS  "${CMAKE_SHARED_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS}" )
 SET( CMAKE_STATIC_LINKER_FLAGS  "${CMAKE_STATIC_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS}" )
@@ -56,6 +56,25 @@ SET(KERNEL_LIBRARIES
     #zlib
     EGL                           #
     GLESv2                        #
+)
+
+# physx needs cpufeatures
+include_directories(${ANDROID_NDK}/sources/android/cpufeatures)
+add_library(cpufeatures ${ANDROID_NDK}/sources/android/cpufeatures/cpu-features.c)
+target_link_libraries(cpufeatures dl)
+
+# order matters
+SET(PHYSX_LIBS
+    PxPvdSDK
+	PsFastXml
+	PhysX3CharacterKinematic
+	PhysX3Extensions
+	PhysX3Cooking
+	PhysX3Vehicle
+	PhysX3
+	PhysX3Common
+	PxFoundation
+	cpufeatures
 )
 
 # set variable for 3rd dependencies

@@ -49,9 +49,9 @@ sometimes they are stored in a byte.
   @{
 */
 
-#define PX_FOUNDATION_VERSION_MAJOR 1
-#define PX_FOUNDATION_VERSION_MINOR 0
-#define PX_FOUNDATION_VERSION_BUGFIX 0
+#define PX_FOUNDATION_VERSION_MAJOR 3
+#define PX_FOUNDATION_VERSION_MINOR 4
+#define PX_FOUNDATION_VERSION_BUGFIX 2
 
 /**
 The constant PX_FOUNDATION_VERSION is used when creating certain PhysX module objects.
