@@ -1,0 +1,1 @@
+Put android26 to PhysX-3.4/PhysX_3.4/Source/compiler/android26 and use make release to build PhysX.
